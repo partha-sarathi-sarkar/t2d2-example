@@ -49,6 +49,6 @@ variable "location" {
 
 variable "environment" {
   description = "Env"
-  type = string
-  default = "Development"
+  type        = string
+  default     = "Development"
 }
