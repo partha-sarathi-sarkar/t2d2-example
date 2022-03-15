@@ -3,6 +3,8 @@ import * as t2d2 from '@t2d2/core';
 describe("resources", () => {
   let profile: t2d2.Profile;
   let currentState: t2d2.ParsedTFPlan;
+  let location: string = "eastus"
+  let resourceGroupName: string = "t2d2"
 
   beforeAll(async () => { 
     profile = await t2d2.init({
@@ -12,8 +14,8 @@ describe("resources", () => {
 
     currentState = await t2d2.plan(profile, {
       vars: {
-        location: "East US",
-        'rg-name': 't2d2',
+        location: location,
+        'rg-name': resourceGroupName,
       }
     })
   })
@@ -25,12 +27,12 @@ describe("resources", () => {
 
     test('should use rg-name in the resource group name', () => {
       const rg = currentState.getResourceByAddress("azurerm_resource_group.rg")
-      expect((rg as any).values.name).toMatch(/^t2d2/)
+      expect((rg as any).values.name).toMatch(resourceGroupName)
     })
 
   test('should use location in the resource group name', () => {
     const rg = currentState.getResourceByAddress("azurerm_resource_group.rg")
-    expect((rg as any).values.location).toMatch(/^eastus/)
+    expect((rg as any).values.location).toMatch(location)
   }) 
 })
 
