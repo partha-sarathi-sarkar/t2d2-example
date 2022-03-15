@@ -6,3 +6,6 @@ parameters:
 - name : ARM_SUBSCRIPTION_ID
   type: string
   default: ${{ ARM_SUBSCRIPTION_ID }}
+
+steps:
+- script: echo "test"
