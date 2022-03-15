@@ -1,8 +1,8 @@
 trigger:
 - t2d2ci
 
-extends:
-  template: azure-pipeline-variabale.yml
+# extends:
+#   template: azure-pipeline-variabale.yml
 
 pool:
   vmImage: 'ubuntu-latest'
