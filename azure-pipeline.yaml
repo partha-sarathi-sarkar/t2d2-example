@@ -1,5 +1,5 @@
 trigger:
-- main
+- t2d2ci
 
 pool:
   vmImage: 'ubuntu-latest'
